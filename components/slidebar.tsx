@@ -7,7 +7,17 @@ import Link from "next/link";
 
 // Personal Imports
 import { cn } from "@/lib/utils";
-import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
+import { 
+    Code, 
+    ImageIcon, 
+    LayoutDashboard, 
+    MessageSquare, 
+    Music, 
+    Settings, 
+    VideoIcon 
+} from "lucide-react";
+
+import { usePathname } from "next/navigation";
 
 
 const montserrat = Montserrat({
@@ -62,6 +72,7 @@ const routes = [
 ]
 
 const SlideBar = () => {
+    const pathName = usePathname();
     return (
         <>
             <div className=" space-y-4 flex flex-col py-4 h-full bg-[#111827] text-white" >
@@ -86,7 +97,11 @@ const SlideBar = () => {
                             href={route.href}
                             key={route.href}
                             //yaha text small thoda chota tha isiliye usko lg kiya varna text-sm use karo if any issue
-                            className=" text-lg flex justify-start p-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition"
+                            className= { cn (" text-lg flex justify-start p-3 w-full font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
+                                pathName  === route.href ? " text-white bg-white/10" : " text-zinc-500"
+                             )}
+                             // yaha ye route.href ke baad jo classname dala hai uske karan upun jis route pe hai
+                             // wo route highlight hai aur wo or condition baaki ke part ko light karta hai
                             >
                             <div className=" flex items-center flex-1" >
                                 <route.icon className= {cn ("h-5 w-5 mr-5", route.color)} />
