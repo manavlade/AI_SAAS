@@ -53,7 +53,7 @@ export default function page() {
         <h2 className=" text-2xl md:text-4xl font-bold text-center" >
           Explore the Power of AI
         </h2>
-        <p className=" text-muted-foreground font-light text-sm md:text-lg text-center text-blue-800" >
+        <p className=" text-muted-foreground font-light text-sm md:text-lg text-center text-purple-800" >
           Chat with the smartest AI with all the cool AI models integrated in one Website
         </p>
       </div>
@@ -65,8 +65,9 @@ export default function page() {
             className=" p-4 border-black/5 flex items-center justify-between hover:shadow-sm transition cursor-pointer"
           >
             <div className=" flex items-center gap-x-4  " >
-              <div className={cn(" p-2 w-full rounded-md",
+              <div className={cn(" p-2 rounded-md",
                 tool.bgColor
+                // Yaha w-full classname tha nikal diya for better ui
               )} >
                 <tool.icon className={cn(" w-8 h-8", tool.color)} />
               </div>
